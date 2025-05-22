@@ -5,6 +5,17 @@ import json
 
 
 
-r = requests.get('hhttp://api.weatherstack.com/')
-x = r.json()
-df = pd.read_json(json.dumps(x))
+url = "https://testbooru.donmai.us"
+
+response = requests.get(url)
+
+def anime_names(url):
+
+    if response.status_code == 200:
+        posts = response.json()
+        print('success!')
+    else:
+        print('Error:', response.status_code)
+
+anime_names_df = anime_names(url)
+print(anime_names_df)
