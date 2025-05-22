@@ -5,7 +5,7 @@ import json
 
 
 
-url = "https://testbooru.donmai.us"
+url = "https://github.com/jikan-me/jikan-rest/tree/v3"
 
 response = requests.get(url)
 
