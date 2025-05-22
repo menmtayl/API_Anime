@@ -3,19 +3,16 @@ import pandas as pd
 import requests
 import json
 
-
-
-url = "https://github.com/jikan-me/jikan-rest/tree/v3"
+url = "https://api.weatherstack.com/current?access_key={8b97da969d50a46b212f5211c3700f6d}"
 
 response = requests.get(url)
 
 def anime_names(url):
-
     if response.status_code == 200:
-        posts = response.json()
+        data = response.json()
         print('success!')
     else:
-        print('Error:', response.status_code)
+        print(f"Error: {response.status_code}")
 
-anime_names_df = anime_names(url)
-print(anime_names_df)
+    df = pd.DataFrame(data)
+    print(df.head)
